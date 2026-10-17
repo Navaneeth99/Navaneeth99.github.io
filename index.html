@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Navaneeth B</title>
+<meta name="description" content="Projects by Navaneeth B: parallel computing, simulation and data research.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --text: #242424;
+    --muted: #6b6b6b;
+    --rule: #f2f2f2;
+    --accent: #1a8917;
+    --accent-soft: #e8f3e8;
+    --thumb: #f7f7f7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #121212;
+      --text: #e6e6e6;
+      --muted: #a0a0a0;
+      --rule: #262626;
+      --accent: #4cb84a;
+      --accent-soft: #1b2e1b;
+      --thumb: #1c1c1c;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #121212;
+    --text: #e6e6e6;
+    --muted: #a0a0a0;
+    --rule: #262626;
+    --accent: #4cb84a;
+    --accent-soft: #1b2e1b;
+    --thumb: #1c1c1c;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Source Serif 4", Georgia, Cambria, "Times New Roman", serif;
+    font-size: 20px;
+    line-height: 32px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .sans { font-family: "Inter", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
+
+  .topbar {
+    border-bottom: 1px solid var(--rule);
+    padding: 0 16px;
+    height: 57px;
+    display: flex; align-items: center; justify-content: space-between;
+    max-width: 1192px; margin: 0 auto;
+  }
+  .topbar .mark { font: 700 1.25rem/1 "Source Serif 4", Georgia, serif; letter-spacing: -0.02em; color: var(--text); text-decoration: none; }
+  .topbar a.gh {
+    font: 500 14px/1 "Inter", sans-serif; color: var(--bg); background: var(--text);
+    padding: 9px 16px; border-radius: 99px; text-decoration: none;
+  }
+
+  main { max-width: 728px; margin: 0 auto; padding: 56px 16px 96px; }
+
+  .profile { display: flex; align-items: center; gap: 20px; }
+  .profile img { width: 88px; height: 88px; border-radius: 50%; flex: none; background: var(--thumb); }
+  h1 {
+    font-family: "Inter", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-weight: 700; font-size: 42px; line-height: 52px; letter-spacing: -0.016em;
+    margin: 0;
+  }
+  .role { font: 400 16px/24px "Inter", sans-serif; color: var(--muted); margin-top: 2px; }
+  .intro { margin: 28px 0 0; }
+
+  .tabs { display: flex; gap: 32px; border-bottom: 1px solid var(--rule); margin-top: 48px; }
+  .tabs span { font: 400 14px/20px "Inter", sans-serif; padding: 0 0 16px; color: var(--text); border-bottom: 1px solid var(--text); margin-bottom: -1px; }
+
+  .story {
+    display: grid; grid-template-columns: 1fr 160px; gap: 32px; align-items: center;
+    padding: 32px 0; border-bottom: 1px solid var(--rule);
+    color: inherit; text-decoration: none;
+  }
+  .story:hover h2 { text-decoration: underline; text-underline-offset: 4px; }
+  .kicker { font: 500 13px/20px "Inter", sans-serif; color: var(--muted); }
+  .kicker .live { color: var(--accent); }
+  .story h2 {
+    font-family: "Inter", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-weight: 700; font-size: 22px; line-height: 28px; letter-spacing: -0.016em;
+    margin: 8px 0 0;
+  }
+  .story p { font: 16px/24px "Source Serif 4", Georgia, serif; color: var(--muted); margin: 8px 0 0; }
+  .meta { font: 13px/20px "Inter", sans-serif; color: var(--muted); margin-top: 14px; display: flex; flex-wrap: wrap; gap: 6px; }
+  .meta span { background: var(--rule); color: var(--text); padding: 2px 10px; border-radius: 99px; }
+
+  .thumb { width: 160px; height: 107px; background: var(--thumb); border-radius: 2px; overflow: hidden; }
+  .thumb svg { width: 100%; height: 100%; display: block; }
+  .thumb .ink { fill: var(--text); }
+  .thumb .soft { fill: var(--muted); }
+  .thumb .acc { fill: var(--accent); }
+  .thumb .line { fill: none; stroke: var(--muted); stroke-width: 1.5; }
+  .thumb .line-acc { fill: none; stroke: var(--accent); stroke-width: 2; }
+
+  footer { margin-top: 56px; font: 14px/20px "Inter", sans-serif; color: var(--muted); }
+  footer a { color: inherit; }
+
+  @media (max-width: 600px) {
+    body { font-size: 18px; line-height: 28px; }
+    h1 { font-size: 32px; line-height: 40px; }
+    .profile img { width: 64px; height: 64px; }
+    .story { grid-template-columns: 1fr 88px; gap: 16px; }
+    .thumb { width: 88px; height: 88px; }
+    .story h2 { font-size: 18px; line-height: 24px; }
+    .story p { display: none; }
+  }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="mark" href="/">Navaneeth B</a>
+  <a class="gh" href="https://github.com/Navaneeth99">GitHub</a>
+</header>
+
+<main>
+  <div class="profile">
+    <img src="https://avatars.githubusercontent.com/u/56221892?v=4" alt="">
+    <div>
+      <h1>Navaneeth B</h1>
+      <div class="role">Georgia Tech</div>
+    </div>
+  </div>
+  <p class="intro">I build things at the intersection of high-performance computing, simulation and data. Here are write-ups and code for some of my projects.</p>
+
+  <nav class="tabs" aria-label="Sections"><span>Projects</span></nav>
+
+  <a class="story" href="/particle-simulation/">
+    <div>
+      <div class="kicker">CSE 6230 · <span class="live">Write-up</span></div>
+      <h2>Parallel Particle Simulation</h2>
+      <p>Making a 2D particle simulation run in linear time with a spatial grid, then spreading the work across cores with OpenMP.</p>
+      <div class="meta"><span>C++</span><span>OpenMP</span><span>HPC</span></div>
+    </div>
+    <div class="thumb" aria-hidden="true">
+      <svg viewBox="0 0 160 107" preserveAspectRatio="xMidYMid slice">
+        <g class="line" style="stroke:var(--rule)"><path d="M40 0V107M80 0V107M120 0V107M0 27H160M0 54H160M0 81H160"/></g>
+        <circle class="soft" cx="18" cy="14" r="3"/><circle class="soft" cx="62" cy="20" r="3"/><circle class="soft" cx="103" cy="12" r="3"/>
+        <circle class="soft" cx="142" cy="30" r="3"/><circle class="soft" cx="28" cy="48" r="3"/><circle class="ink" cx="86" cy="50" r="4"/>
+        <circle class="soft" cx="70" cy="62" r="3"/><circle class="soft" cx="99" cy="40" r="3"/><circle class="soft" cx="130" cy="66" r="3"/>
+        <circle class="soft" cx="14" cy="88" r="3"/><circle class="soft" cx="52" cy="96" r="3"/><circle class="soft" cx="94" cy="86" r="3"/>
+        <circle class="soft" cx="148" cy="94" r="3"/>
+        <circle cx="86" cy="50" r="22" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="3 3"/>
+      </svg>
+    </div>
+  </a>
+
+  <a class="story" href="https://github.com/Navaneeth99/ai_patent_impact">
+    <div>
+      <div class="kicker">Research · GitHub</div>
+      <h2>AI Patent Impact</h2>
+      <p>How generative AI writing tools may affect patent drafting and USPTO examination, using a corpus built from published application full text.</p>
+      <div class="meta"><span>Python</span><span>Data analysis</span></div>
+    </div>
+    <div class="thumb" aria-hidden="true">
+      <svg viewBox="0 0 160 107" preserveAspectRatio="xMidYMid slice">
+        <rect class="soft" x="22" y="64" width="14" height="28"/><rect class="soft" x="44" y="56" width="14" height="36"/>
+        <rect class="soft" x="66" y="60" width="14" height="32"/><rect class="acc" x="88" y="40" width="14" height="52"/>
+        <rect class="acc" x="110" y="30" width="14" height="62"/><rect class="acc" x="132" y="22" width="14" height="70"/>
+        <path d="M84 14V96" stroke="var(--muted)" stroke-width="1" stroke-dasharray="3 3"/>
+        <path d="M14 92H154" stroke="var(--muted)" stroke-width="1"/>
+      </svg>
+    </div>
+  </a>
+
+  <a class="story" href="https://github.com/Navaneeth99/atlanta-hub-solution">
+    <div>
+      <div class="kicker">Research · GitHub</div>
+      <h2>Atlanta Hub Solution</h2>
+      <p>Improving public transit service in Atlanta through better microtransit solutions.</p>
+      <div class="meta"><span>Transit</span><span>Optimization</span></div>
+    </div>
+    <div class="thumb" aria-hidden="true">
+      <svg viewBox="0 0 160 107" preserveAspectRatio="xMidYMid slice">
+        <path class="line" d="M80 54L30 24M80 54L36 86M80 54L132 20M80 54L138 80M80 54L100 98"/>
+        <path class="line-acc" d="M30 24C50 10 110 6 132 20"/>
+        <circle class="soft" cx="30" cy="24" r="5"/><circle class="soft" cx="36" cy="86" r="5"/>
+        <circle class="soft" cx="132" cy="20" r="5"/><circle class="soft" cx="138" cy="80" r="5"/>
+        <circle class="soft" cx="100" cy="98" r="5"/>
+        <circle class="acc" cx="80" cy="54" r="9"/>
+      </svg>
+    </div>
+  </a>
+
+  <footer>
+    <a href="https://github.com/Navaneeth99">github.com/Navaneeth99</a>
+  </footer>
+</main>
+</body>
+</html>
